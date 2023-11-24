@@ -1,14 +1,12 @@
-package com.mohsen.todo.entity;
+package com.mohsen.todo.dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.mohsen.todo.entity.TaskStatus;
 
 import java.io.Serializable;
 import java.util.Date;
 
-@Document
-public class Task implements Serializable {
-    @Id
+public class TaskDto implements Serializable {
+
     private Long id;
 
     private String title;
@@ -16,15 +14,18 @@ public class Task implements Serializable {
     private String creationDate;
     private TaskStatus status;
 
-    public Task() {
+    public TaskDto() {
     }
 
-    public Task(String title, String description, String creationDate, TaskStatus status) {
+    public TaskDto(String title, String description, String creationDate, TaskStatus status) {
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
         this.status = status;
     }
+
+    // Getters and Setters
+
     public Long getId() {
         return id;
     }
