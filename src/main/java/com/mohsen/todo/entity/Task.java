@@ -4,7 +4,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Document
 public class Task implements Serializable {
@@ -25,6 +24,7 @@ public class Task implements Serializable {
         this.creationDate = creationDate;
         this.status = status;
     }
+
     public Long getId() {
         return id;
     }
@@ -64,8 +64,6 @@ public class Task implements Serializable {
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
-
-    // toString method for easy debugging
 
     @Override
     public String toString() {

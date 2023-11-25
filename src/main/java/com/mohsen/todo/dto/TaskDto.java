@@ -3,7 +3,6 @@ package com.mohsen.todo.dto;
 import com.mohsen.todo.entity.TaskStatus;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class TaskDto implements Serializable {
 
