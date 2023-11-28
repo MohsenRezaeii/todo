@@ -9,12 +9,12 @@ public interface TaskService {
 
     Mono<Task> createTask(TaskDto task);
 
-    Mono<Task> getTaskById(Long id);
+    Mono<Task> getTaskById(String id);
 
     Flux<Task> getAllTasks();
 
-    Mono<Task> updateTask(TaskDto updatedTask);
+    Mono<Task> updateTask(TaskDto updatedTask, String id);
 
-    Mono<Void> deleteTask(Long id);
+    Mono<Task> deleteTask(String id);
 
 }
