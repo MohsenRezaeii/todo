@@ -3,21 +3,21 @@ services:
     depends_on:
       mongodb:
         condition: service_started
+    environment:
+      SPRING_DATA_MONGODB_URI: "mongodb://mongodb:27017/tododb"
     image: mohsenrezaei89/todo-app:latest
     build:
       context: .
     ports:
-      - 8080:8080
+      - "8080:8080"
   mongodb:
     image: 'mongo:latest'
     environment:
-      - 'MONGO_INITDB_DATABASE=tododb'
-      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
-      - 'MONGO_INITDB_ROOT_USERNAME=root'
+      MONGO_INITDB_DATABASE: tododb
     healthcheck:
       test: [ "CMD", "mongo", "--eval", "'printjson(db.runCommand({ ping: 1 }))'" ]
       interval: 10s
       timeout: 5s
       retries: 3
     ports:
-      - 27017:27017
+      - "27017:27017"
