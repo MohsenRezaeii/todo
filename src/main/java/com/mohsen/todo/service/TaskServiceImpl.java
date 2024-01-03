@@ -3,6 +3,7 @@ package com.mohsen.todo.service;
 import com.mohsen.todo.dao.TaskDao;
 import com.mohsen.todo.dto.TaskDto;
 import com.mohsen.todo.entity.Task;
+import com.mohsen.todo.entity.TaskStatus;
 import com.mohsen.todo.exception.TaskNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Mono<Task> createTask(TaskDto taskDto) {
         if (taskDto != null) {
+            if (taskDto.getStatus() == null) {
+                taskDto.setStatus(TaskStatus.TODO);
+            }
             return taskDao.save(taskDtoToEntity(taskDto));
         }
         return null;
